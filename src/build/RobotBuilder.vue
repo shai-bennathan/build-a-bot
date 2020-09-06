@@ -69,6 +69,9 @@ function nextIndex(curIndex, array) {
 
 export default {
   name: 'RobotBuilder',
+  created() {
+    console.log('component created');
+  },
   data() {
     return {
       availableParts,
