@@ -44,19 +44,16 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 
 export default {
   name: 'App',
   computed: {
-    rootFoo() {
-      return this.$store.state.foo;
-    },
-    robotsFoo() {
-      return this.$store.state.robots.foo;
-    },
-    usersFoo() {
-      return this.$store.state.users.foo;
-    },
+    ...mapState({
+      rootFoo: 'foo',
+      usersFoo: (state) => state.users.foo,
+    }),
+    ...mapState('robots', { robotsFoo: 'foo' }),
     rootGetterFoo() {
       return this.$store.getters.foo;
     },
